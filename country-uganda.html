@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uganda | ITI country profile prototype</title>
+<meta name="description" content="Uganda ITI country profile: dimension breakdown and trend. Illustrative prototype data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/iti.css">
+</head>
+<body>
+
+<div class="ribbon">
+  PROTOTYPE &middot; <b>Country profile: Uganda</b> &middot; shows what one result page feels like &middot; mock data, <b>illustrative</b> pending verification
+</div>
+
+<div class="brandbar">
+  <div class="wrap brandbar__inner">
+    <a class="brandmark" href="index.html"><span class="dot"></span><span>ITI<small>Infrastructure Transparency Index</small></span></a>
+    <button class="navtoggle" aria-label="Menu">&#9776;</button>
+    <nav class="navlinks">
+      <a href="what-is-iti.html">What is the ITI?</a>
+      <a href="results.html">Results</a>
+      <a href="how-to-use.html">How to use it</a>
+      <a href="why-it-matters.html">Why it matters</a>
+      <a class="btn-sm" href="results.html">Explore results</a>
+    </nav>
+  </div>
+</div>
+
+<header class="pagehero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a> &rsaquo; <a href="results.html">Results</a> &rsaquo; Uganda</div>
+    <p class="eyebrow">Country profile</p>
+    <h1>Uganda</h1>
+    <p>East Africa &middot; assessed 2021 to 2024 &middot; above the international average on every dimension.</p>
+  </div>
+</header>
+
+<!-- country establishing image -->
+<div class="wrap" style="margin-top:-28px;position:relative;z-index:5;">
+  <div class="imgslot" style="height:300px;border-radius:14px;box-shadow:0 24px 60px rgba(44,65,67,.16);">
+    <img src="assets/img/uganda-profile.jpg" alt="Community members and an official reviewing public project information at a noticeboard beside a Ugandan road project.">
+  </div>
+  <p class="imgcap">A community consultation beside a public works project in Uganda.</p>
+</div>
+
+<section class="block tight">
+  <div class="wrap">
+    <div class="scorehead">
+      <div>
+        <div class="pick">National ITI score, 2024</div>
+        <div class="big">71</div>
+      </div>
+      <div>
+        <div class="pick">Change since 2021</div>
+        <div class="delta">+55%</div>
+      </div>
+      <div>
+        <div class="pick">International average</div>
+        <div class="delta" style="color:var(--muted);">54</div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:30px;">
+      <div class="k">What this score means</div>
+      <p>Uganda's public systems for publishing, sustaining, and using infrastructure information sit well above the international average. The largest single gain came in data publication, where more projects are now published across the lifecycle than at baseline.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Dimension breakdown</p><h2>Where the score comes from.</h2><p>Each dimension is scored 0 to 100. Uganda is strongest on data publication and has the most room to grow on citizen participation. The gold shape is Uganda; the blue is the international average.</p></div>
+    <div class="radar-wrap">
+      <svg class="radar" viewBox="0 0 320 320" role="img" aria-label="Radar chart of Uganda's four dimension scores against the international average. Enabling Environment 74, Capacities and Processes 69, Citizen Participation 63, Data Publication 78. International average 54.">
+        <!-- concentric grid rings at 25/50/75/100 -->
+        <polygon class="grid-line" points="160,70 250,160 160,250 70,160"/>
+        <polygon class="grid-line" points="160,100 220,160 160,220 100,160"/>
+        <polygon class="grid-line" points="160,130 190,160 160,190 130,160"/>
+        <!-- axes -->
+        <line class="axis" x1="160" y1="160" x2="160" y2="40"/>
+        <line class="axis" x1="160" y1="160" x2="280" y2="160"/>
+        <line class="axis" x1="160" y1="160" x2="160" y2="280"/>
+        <line class="axis" x1="160" y1="160" x2="40" y2="160"/>
+        <!-- international average shape (54 on each: r=64.8) -->
+        <polygon class="shape-avg" points="160,95.2 224.8,160 160,224.8 95.2,160"/>
+        <!-- Uganda shape: Enabling 74 top(160,71.2), Capacities 69 right(242.8,160), Citizen 63 bottom(160,235.6), Data 78 left(66.4,160) -->
+        <polygon class="shape-country" points="160,71.2 242.8,160 160,235.6 66.4,160" pathLength="1"/>
+        <circle class="node" cx="160" cy="71.2" r="4"/>
+        <circle class="node" cx="242.8" cy="160" r="4"/>
+        <circle class="node" cx="160" cy="235.6" r="4"/>
+        <circle class="node" cx="66.4" cy="160" r="4"/>
+        <!-- axis labels + values -->
+        <text class="alab" x="160" y="32" text-anchor="middle">Enabling Env.</text>
+        <text class="aval" x="160" y="20" text-anchor="middle">74</text>
+        <text class="alab" x="288" y="160" text-anchor="start">Capacities</text>
+        <text class="aval" x="288" y="148" text-anchor="start">69</text>
+        <text class="alab" x="160" y="298" text-anchor="middle">Citizen Part.</text>
+        <text class="aval" x="160" y="312" text-anchor="middle">63</text>
+        <text class="alab" x="32" y="160" text-anchor="end">Data Pub.</text>
+        <text class="aval" x="32" y="148" text-anchor="end">78</text>
+      </svg>
+      <div class="radar-legend">
+        <div class="li"><span class="sw c"></span> Uganda, 2024</div>
+        <div class="li"><span class="sw a"></span> International average</div>
+        <p class="imgcap" style="margin-top:8px;">Strongest: Data Publication (78). Weakest: Citizen Participation (63), the dimension to target next.</p>
+      </div>
+    </div>
+    <p class="illus-note">Dimension values are illustrative for the prototype, pending publication assurance.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap-narrow">
+    <div class="sec-head"><p class="eyebrow">Trend</p><h2>The score over time, against the average.</h2><p>A benchmark is only useful if it moves. Uganda has pulled clear of the international average, year on year.</p></div>
+    <!-- multi-line trend: viewBox 0..640 x, 0..240 y. Years 2021..2024 mapped to x=70,260,450,600. Score 0..100 -> y=210..30 -->
+    <svg class="trendlines" viewBox="0 0 660 250" role="img" aria-label="Uganda's ITI score rose from 46 in 2021 to 71 in 2024, moving above the international average which held near 50 to 54.">
+      <!-- gridlines at 25/50/75 -->
+      <line class="gl" x1="70" y1="165" x2="600" y2="165"/>
+      <line class="gl" x1="70" y1="120" x2="600" y2="120"/>
+      <line class="gl" x1="70" y1="75"  x2="600" y2="75"/>
+      <text class="axlab" x="58" y="168" text-anchor="end">25</text>
+      <text class="axlab" x="58" y="123" text-anchor="end">50</text>
+      <text class="axlab" x="58" y="78"  text-anchor="end">75</text>
+      <!-- x labels -->
+      <text class="axlab" x="70"  y="232" text-anchor="middle">2021</text>
+      <text class="axlab" x="247" y="232" text-anchor="middle">2022</text>
+      <text class="axlab" x="423" y="232" text-anchor="middle">2023</text>
+      <text class="axlab" x="600" y="232" text-anchor="middle">2024</text>
+      <!-- international average line (flat ~50-54): y = 210 - score*1.8 -->
+      <polyline class="avg" points="70,121.2 247,118.8 423,116.4 600,112.8"/>
+      <text class="axlab" x="608" y="112" text-anchor="start" fill="#5E6F72">avg 54</text>
+      <!-- Uganda line: 46,54,63,71 -> y=210-score*1.8 = 127.2,112.8,96.6,82.2 -->
+      <polyline class="ln" stroke="#E9B312" points="70,127.2 247,112.8 423,96.6 600,82.2" pathLength="1"/>
+      <circle cx="70" cy="127.2" r="4.5" fill="#E9B312"/>
+      <circle cx="247" cy="112.8" r="4.5" fill="#E9B312"/>
+      <circle cx="423" cy="96.6" r="4.5" fill="#E9B312"/>
+      <circle cx="600" cy="82.2" r="5.5" fill="#E9B312" stroke="#fff" stroke-width="2"/>
+      <text class="endlab" x="608" y="78" text-anchor="start" fill="#2C4143">Uganda 71</text>
+    </svg>
+    <p class="illus-note">Trend values are illustrative for the prototype, pending publication assurance.</p>
+  </div>
+</section>
+
+<section class="block alt tight">
+  <div class="wrap">
+    <div class="nextstrip">
+      <a class="nextcard" href="results.html"><div class="k">Back</div><h3>All results &rarr;</h3><p>Compare Uganda with other assessed countries.</p></a>
+      <a class="nextcard" href="how-to-use.html"><div class="k">Act</div><h3>Use this in your country &rarr;</h3><p>See what a profile like this means for a government or a funder.</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div style="color:#CFD4D5;margin-bottom:8px;">Infrastructure Transparency Index &middot; prototype</div>
+      <nav class="fnav">
+        <a href="what-is-iti.html">What is the ITI?</a>
+        <a href="results.html">Results</a>
+        <a href="how-to-use.html">How to use it</a>
+        <a href="why-it-matters.html">Why it matters</a>
+      </nav>
+    </div>
+    <div class="endorse">A CoST &mdash; Infrastructure Transparency Initiative product</div>
+  </div>
+</footer>
+
+<script src="assets/iti.js"></script>
+</body>
+</html>

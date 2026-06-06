@@ -1,0 +1,7 @@
+# OS / editor noise
+.DS_Store
+
+# Note: assets/config.js IS committed so the live GitHub Pages map works.
+# It holds a Mapbox PUBLIC token (pk.), which is safe client-side.
+# Protect it with a URL restriction in the Mapbox account (restrict to the
+# github.io domain), not by hiding it. See assets/config.sample.js for the shape.
