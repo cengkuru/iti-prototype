@@ -62,6 +62,21 @@ Acting on a structured review, this version adds and corrects:
 - **Accessibility fixes.** Contact-form inputs now carry `id`, `name`, `autocomplete`, and associated `<label>` elements (with a visually-hidden `.sr-only` utility). The expandable dimension cards are now `role="button"` with `tabindex`, `aria-expanded`, and Enter/Space keyboard operation, so screen readers announce them correctly. A visible focus ring is applied site-wide.
 - **Performance.** Below-the-fold images carry `loading="lazy"` and `decoding="async"`; the hero is `fetchpriority="high"`. Mobile spacing was tightened across the hero, proof strip, radar, dashboard, artefact, and timeline, and the trend chart's viewBox was widened so end-labels no longer clip. (Still prototype-grade: images are not yet WebP/AVIF or served with `srcset`, and Mapbox still loads eagerly. Both are noted for production.)
 
+## Review responses (round 3)
+
+Three independent reviews converged on the same gaps. Acting on the convergent set:
+
+- **Citizen / general-public pathway added.** The moral case of the ITI is public money, so the citizen could not stay invisible. There is now a citizen tile in the homepage selector and a full citizen row on the hub: plain-language framing plus four concrete cards (roads, schools, clinics, water) asking "was it published, costed, finished?"
+- **The score-to-action loop is now a homepage section.** "A score is the start of the work, not the end of it": a five-step ring diagram (assess, find the weakest part, agree reform, publish and monitor, reassess) that lights up on scroll and loops back. This reframes the ITI as an improvement engine, the spine all three reviewers asked for.
+- **The evidence ledger now travels with the claims.** Each headline stat on the homepage has a "source & status" button that opens a small drawer showing source, owner, last-checked, confidence, and status, linking to the full ledger. The ledger is no longer buried on the funder page. Owner and confidence columns were added per the funder-rigour request.
+- **Generic audience links fixed.** Civil society, journalist, government, regional, citizen, and researcher each route to their own anchored section on the hub, with real toolkits: an advocacy toolkit for civil society, a press pack and source-safe figures for journalists, a concrete regional offer (shared benchmark, peer learning, reform plans, donor roundtable) for regional bodies, and a citation/reproducibility note for researchers. A researcher pathway was added.
+- **Accessibility pass.** Gold text on light backgrounds failed WCAG AA (1.9:1); a dedicated `--gold-text` (#876A09, 5.1:1) now carries all gold text on light grounds, while bright gold stays for fills and text on dark grounds. Muted text on slate was nudged to clear AA. Form inputs are labelled, dimension cards and tiles are real keyboard-operable buttons, and a visible focus ring is applied site-wide.
+- **Honest contact + favicon.** The contact form now opens a real `mailto:` to CoST (clearly labelled as a prototype that opens your email app, with a note to confirm the address). A favicon was added, removing the 404.
+- **"Rank your region" softened** to "shared benchmark and peer learning, not a league table," per the caution about league-table framing.
+- **Scoring hierarchy is now a diagram** on the explainer (indicators to sub-variables to variables to four dimensions to one score), not just prose.
+
+What I did NOT do, and why: I did not invent verified sources or licence real CoST photos (those are CoST's to supply, and the ledger now makes the requirement explicit rather than hiding it); I did not default the map to static-load-on-interaction (a production optimisation noted for the build, kept live here so the board sees the real map); and I kept the generated imagery, which you explicitly asked for, while flagging in this note that the live site should carry authentic CoST photography.
+
 ## What is real and what is faked
 
 **Real:** the structure, the navigation, the copy, the design system, the interactions (dimension cards, country switching, audience selector, scroll reveals, modals).

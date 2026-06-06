@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ITI: is infrastructure transparency working? | Prototype</title>
 <meta name="description" content="The Infrastructure Transparency Index shows whether infrastructure transparency is working in practice. Prototype homepage direction.">
@@ -66,10 +67,10 @@
 <div class="proof">
   <div class="wrap">
     <div class="proof__grid">
-      <div class="stat"><span class="flag">illustrative</span><div class="n" data-stat="implementations">20</div><div class="l">implementations</div></div>
-      <div class="stat"><span class="flag">illustrative</span><div class="n" data-stat="countries">14</div><div class="l">countries assessed</div></div>
-      <div class="stat"><div class="n" data-stat="dimensions">4</div><div class="l">transparency dimensions</div></div>
-      <div class="stat"><span class="flag">ambition</span><div class="n" data-stat="ambition">100<span class="suf">+</span></div><div class="l">country goal by 2031</div></div>
+      <div class="stat has-proof"><span class="flag">illustrative</span><div class="n" data-stat="implementations">20</div><div class="l">implementations</div><button class="proofbtn" data-proof="implementations" aria-label="Source and status for this figure">source &amp; status</button></div>
+      <div class="stat has-proof"><span class="flag">illustrative</span><div class="n" data-stat="countries">14</div><div class="l">countries assessed</div><button class="proofbtn" data-proof="countries" aria-label="Source and status for this figure">source &amp; status</button></div>
+      <div class="stat has-proof"><div class="n" data-stat="dimensions">4</div><div class="l">transparency dimensions</div><button class="proofbtn" data-proof="dimensions" aria-label="Source and status for this figure">source &amp; status</button></div>
+      <div class="stat has-proof"><span class="flag">ambition</span><div class="n" data-stat="ambition">100<span class="suf">+</span></div><div class="l">country goal by 2031</div><button class="proofbtn" data-proof="ambition" aria-label="Source and status for this figure">source &amp; status</button></div>
     </div>
   </div>
 </div>
@@ -280,6 +281,20 @@
         </dl></div>
       </div>
     </div>
+    <!-- score-to-action loop: ITI as improvement engine, not just an index -->
+    <div class="sec-head" style="margin-top:64px;">
+      <p class="eyebrow">From score to reform</p>
+      <h2>A score is the start of the work, not the end of it.</h2>
+      <p>The ITI is an improvement engine. A country measures its system, fixes the weakest part, and the next assessment shows whether the reform worked.</p>
+    </div>
+    <div class="loop" id="loop">
+      <div class="loopstep"><div class="ring">1</div><h3>Assess the system</h3><p>Score transparency across the four dimensions.</p></div>
+      <div class="loopstep"><div class="ring">2</div><h3>Find the weakest part</h3><p>The dimension breakdown shows where to focus.</p></div>
+      <div class="loopstep"><div class="ring">3</div><h3>Agree reform actions</h3><p>Target the gap with a concrete plan.</p></div>
+      <div class="loopstep"><div class="ring">4</div><h3>Publish and monitor</h3><p>Open the data and track progress.</p></div>
+      <div class="loopstep reassess"><div class="ring">5</div><h3>Reassess</h3><p>The next score shows whether it worked.</p></div>
+    </div>
+    <div class="loop-back"><span class="arc">&#8635;</span> then the loop runs again, on the next weakest dimension</div>
     <p style="margin-top:22px;"><a class="btn btn-outline" href="why-it-matters.html">See the full impact story &rarr;</a></p>
     <p class="illus-note">Figures illustrative, sourced from the ITI Business Plan, pending publication assurance before any public release.</p>
   </div>
@@ -296,6 +311,7 @@
     <div class="aud">
       <div class="tiles" id="tiles">
         <button class="tile active" data-a="gov"><span class="ic">&#127963;</span> I am a government</button>
+        <button class="tile" data-a="pub"><span class="ic">&#129489;</span> I am a citizen</button>
         <button class="tile" data-a="civ"><span class="ic">&#128483;</span> I am from civil society</button>
         <button class="tile" data-a="don"><span class="ic">&#128176;</span> I am a donor or investor</button>
         <button class="tile" data-a="reg"><span class="ic">&#127758;</span> I am a regional body</button>
@@ -382,8 +398,8 @@
       <input class="field" id="cf-org" name="organisation" type="text" autocomplete="organization" placeholder="Organisation" />
       <label class="sr-only" for="cf-country">Country</label>
       <input class="field" id="cf-country" name="country" type="text" autocomplete="country-name" placeholder="Country" />
-      <button class="btn btn-slate" style="width:100%;margin-top:14px;" data-close>Send (prototype)</button>
-      <p class="modal__note">Prototype form. No message is sent. The live version routes to the CoST team.</p>
+      <a class="btn btn-slate" style="width:100%;margin-top:14px;text-align:center;display:block;" href="mailto:contact@infrastructuretransparency.org?subject=ITI%20enquiry&body=Name%3A%0AOrganisation%3A%0ACountry%3A%0A%0AMy%20enquiry%3A">Open an email to CoST</a>
+      <p class="modal__note">Prototype: this opens your email app addressed to CoST. The live site would route the form directly. Confirm the correct CoST address before launch.</p>
     </div>
   </div>
 </div>

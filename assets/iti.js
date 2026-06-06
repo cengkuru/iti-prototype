@@ -216,23 +216,27 @@
         gov: { who: "Government", h: "Reform guidance you can act on",
           q: "How do we improve, and where do we start?",
           g: "A diagnostic across four dimensions that shows exactly which systems to strengthen first.",
-          next: "See your reform priorities" },
+          next: "See your reform priorities", nextHref: "how-to-use.html#government" },
+        pub: { who: "Citizen", h: "What this means for your roads, schools, and clinics",
+          q: "What does my government do with public money for infrastructure?",
+          g: "Whether the projects in your area are published, explained, and open to question, in plain language, not jargon.",
+          next: "What this means for me", nextHref: "how-to-use.html#citizen" },
         civ: { who: "Civil society", h: "Evidence for advocacy",
           q: "Where is transparency failing, and how do we prove it?",
           g: "Comparable scores and dimension-level gaps you can cite in campaigns and oversight work.",
-          next: "Find the evidence" },
+          next: "Open the advocacy toolkit", nextHref: "how-to-use.html#civil-society" },
         don: { who: "Donor or investor", h: "Evidence to inform fiduciary-risk conversations",
           q: "Is our funding going somewhere transparent and accountable?",
           g: "A consistent measure of transparency and reform progress to inform risk conversations and support decisions.",
           next: "See the funder assurance case", nextHref: "for-funders.html" },
-        reg: { who: "Regional body", h: "A benchmark across your member states",
+        reg: { who: "Regional body", h: "A shared benchmark and peer learning",
           q: "How do our countries compare, and where do we focus regional effort?",
-          g: "A common scale that lets you benchmark members and target capacity-building where it counts.",
-          next: "Compare the region" },
+          g: "A common scale for peer learning across member states, to target capacity-building where the gaps are widest.",
+          next: "See the regional offer", nextHref: "how-to-use.html#regional" },
         jou: { who: "Journalist", h: "Story angles grounded in data",
           q: "What is the real state of infrastructure transparency here?",
           g: "Country scores, trends, and standout gaps that point to concrete, checkable stories.",
-          next: "Find a story angle" }
+          next: "Open the press pack", nextHref: "how-to-use.html#journalist" }
       };
       function renderAud(key) {
         var a = AUD[key];
@@ -330,6 +334,67 @@
         document.head.appendChild(s);
       }
     }
+
+    /* ---- score-to-action loop: light the rings + run the track on entry ---- */
+    var loop = document.querySelector('.loop');
+    if (loop) {
+      function runLoop() {
+        loop.classList.add('run');
+        var steps = loop.querySelectorAll('.loopstep');
+        steps.forEach(function (s, i) {
+          setTimeout(function () { s.classList.add('lit'); }, reduceMotion ? 0 : 260 * i);
+        });
+      }
+      if (reduceMotion) { loop.querySelectorAll('.loopstep').forEach(function (s) { s.classList.add('lit'); }); loop.classList.add('run'); }
+      else {
+        var lo = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { runLoop(); lo.unobserve(loop); } });
+        }, { threshold: .4 });
+        lo.observe(loop);
+      }
+    }
+
+    /* ---- proof drawer: the evidence ledger travels with each claim ---- */
+    var LEDGER = {
+      implementations: { label: '20 implementations', source: 'ITI Business Plan', owner: 'CoST IS', checked: 'Not recorded', confidence: 'Low', status: 'pending' },
+      countries:       { label: '14 countries assessed', source: 'ITI Business Plan', owner: 'CoST IS', checked: 'Not recorded', confidence: 'Low', status: 'pending' },
+      dimensions:      { label: '4 transparency dimensions', source: 'ITI methodology', owner: 'CoST IS', checked: 'Structural', confidence: 'High', status: 'verified' },
+      ambition:        { label: '100+ countries by 2031', source: 'ITI Business Plan', owner: 'CoST Board', checked: 'Not recorded', confidence: 'Stated ambition', status: 'pending' }
+    };
+    var pop = null;
+    function closePop(e) {
+      // don't close if the click is on a proof button or inside the popover itself
+      var t = e && e.target;
+      if (t && typeof t.closest === 'function' && (t.closest('.proofbtn') || t.closest('.proofpop'))) return;
+      if (pop) { pop.classList.remove('show'); }
+    }
+    document.querySelectorAll('.proofbtn[data-proof]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var d = LEDGER[btn.dataset.proof]; if (!d) return;
+        var wasOpen = pop && pop.classList.contains('show') && pop.dataset.key === btn.dataset.proof;
+        if (wasOpen) { pop.classList.remove('show'); return; }
+        if (!pop) { pop = document.createElement('div'); pop.className = 'proofpop'; document.body.appendChild(pop); }
+        pop.dataset.key = btn.dataset.proof;
+        pop.innerHTML =
+          '<div class="proofpop__top">' + d.label + '</div>' +
+          '<div class="proofpop__body">' +
+            '<div class="proofpop__row"><span class="pk">Source</span><span class="pv">' + d.source + '</span></div>' +
+            '<div class="proofpop__row"><span class="pk">Owner</span><span class="pv">' + d.owner + '</span></div>' +
+            '<div class="proofpop__row"><span class="pk">Last checked</span><span class="pv">' + d.checked + '</span></div>' +
+            '<div class="proofpop__row"><span class="pk">Confidence</span><span class="pv">' + d.confidence + '</span></div>' +
+            '<div class="proofpop__row"><span class="pk">Status</span><span class="pv"><span class="status ' + d.status + '">' + (d.status === 'verified' ? 'Verified' : 'Pending verification') + '</span></span></div>' +
+          '</div>' +
+          '<div class="proofpop__foot"><a href="for-funders.html">See the full evidence ledger &rarr;</a></div>';
+        var r = btn.getBoundingClientRect();
+        pop.style.left = Math.max(12, Math.min(window.innerWidth - 332, r.left + r.width / 2 - 160)) + 'px';
+        pop.style.top = (r.bottom + 10) + 'px';
+        pop.classList.add('show');
+      });
+    });
+    document.addEventListener('click', closePop);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePop(); });
+    window.addEventListener('scroll', closePop, { passive: true });
 
     /* ---- vision timeline draws on entry ---- */
     var road = document.querySelector('.road');
