@@ -52,6 +52,16 @@ The earlier drafts were all type and geometry, no people, no place, no infrastru
 
 Everything that animates has a reduced-motion and no-JS fallback. Country positions on the map are real; all scores and figures remain illustrative and unverified.
 
+## Review responses (round 2)
+
+Acting on a structured review, this version adds and corrects:
+
+- **A "For funders" assurance page** (`for-funders.html`). The donor pathway was too thin. The new page sets out the six-part assurance case (methodology, data source, quality assurance, use cases, explicit limits, cost and value), an **evidence ledger** listing every headline claim with its stated source and a visible "pending verification" status, a **complementarity table** showing how the ITI sits alongside the IMF PIMA, the World Bank IGA, and OECD tools rather than duplicating them, and an **Apply the ITI pathway** (four steps with lead, indicative timing, and the ITI-Core support model). It is linked from the main nav, the footer, and the donor audience row.
+- **Map correction.** The map data wrongly included Thailand, which has not run the ITI. It now lists real ITI/CoST countries only (Uganda, Malawi, Ghana, Costa Rica, Panama, Honduras, Guatemala, Ukraine), with a code comment forbidding the addition of any country that has not run the ITI.
+- **The evidence ledger is a template, not proof.** Every headline number (20 implementations, 14 countries, Uganda +55%, Panama 400 to 4,000, Costa Rica 48 to 67) is shown with a "pending verification" status, because none has a verified source on hand. CoST replaces each pending row with a verified source and date through publication assurance before any funder-facing release. No citation has been invented.
+- **Accessibility fixes.** Contact-form inputs now carry `id`, `name`, `autocomplete`, and associated `<label>` elements (with a visually-hidden `.sr-only` utility). The expandable dimension cards are now `role="button"` with `tabindex`, `aria-expanded`, and Enter/Space keyboard operation, so screen readers announce them correctly. A visible focus ring is applied site-wide.
+- **Performance.** Below-the-fold images carry `loading="lazy"` and `decoding="async"`; the hero is `fetchpriority="high"`. Mobile spacing was tightened across the hero, proof strip, radar, dashboard, artefact, and timeline, and the trend chart's viewBox was widened so end-labels no longer clip. (Still prototype-grade: images are not yet WebP/AVIF or served with `srcset`, and Mapbox still loads eagerly. Both are noted for production.)
+
 ## What is real and what is faked
 
 **Real:** the structure, the navigation, the copy, the design system, the interactions (dimension cards, country switching, audience selector, scroll reveals, modals).

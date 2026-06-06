@@ -24,6 +24,7 @@
       <a href="what-is-iti.html">What is the ITI?</a>
       <a href="results.html">Results</a>
       <a href="how-to-use.html">How to use it</a>
+      <a href="for-funders.html">For funders</a>
       <a href="why-it-matters.html">Why it matters</a>
       <a class="btn-sm" href="results.html">Explore results</a>
     </nav>
@@ -73,9 +74,9 @@
           <div class="q">&ldquo;Is our funding going somewhere transparent and accountable?&rdquo;</div>
           <div class="grid">
             <dl><dt>What the ITI gives you</dt><dd>A consistent measure of transparency and reform progress to inform fiduciary-risk conversations and support decisions. Evidence to inform, not a credit rating to replace your own due diligence.</dd></dl>
-            <dl><dt>What to do next</dt><dd>Compare scores across your portfolio countries, and use the trend to see whether transparency is improving where you fund.</dd></dl>
+            <dl><dt>What to do next</dt><dd>Read the assurance case: methodology, quality, limits, cost, and how the ITI complements PIMA, the World Bank IGA, and OECD tools. Then compare scores across your portfolio.</dd></dl>
           </div>
-          <a class="btn btn-gold" href="results.html">Review country evidence &rarr;</a>
+          <a class="btn btn-gold" href="for-funders.html">See the funder assurance case &rarr;</a>
         </div>
       </div>
 
@@ -125,6 +126,7 @@
         <a href="what-is-iti.html">What is the ITI?</a>
         <a href="results.html">Results</a>
         <a href="how-to-use.html">How to use it</a>
+      <a href="for-funders.html">For funders</a>
         <a href="why-it-matters.html">Why it matters</a>
       </nav>
     </div>
@@ -151,9 +153,12 @@
     <div class="modal__top"><h3>Use the ITI in your country</h3><button class="modal__x" data-close>&times;</button></div>
     <div class="modal__body">
       <p style="margin-top:0;font-size:14.5px;color:var(--muted);">Tell us who you are and we will route you to the right CoST contact.</p>
-      <input class="field" placeholder="Your name" />
-      <input class="field" placeholder="Organisation" />
-      <input class="field" placeholder="Country" />
+      <label class="sr-only" for="cf-name">Your name</label>
+      <input class="field" id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" />
+      <label class="sr-only" for="cf-org">Organisation</label>
+      <input class="field" id="cf-org" name="organisation" type="text" autocomplete="organization" placeholder="Organisation" />
+      <label class="sr-only" for="cf-country">Country</label>
+      <input class="field" id="cf-country" name="country" type="text" autocomplete="country-name" placeholder="Country" />
       <button class="btn btn-slate" style="width:100%;margin-top:14px;" data-close>Send (prototype)</button>
       <p class="modal__note">Prototype form. No message is sent. The live version routes to the CoST team.</p>
     </div>

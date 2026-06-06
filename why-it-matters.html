@@ -24,6 +24,7 @@
       <a href="what-is-iti.html">What is the ITI?</a>
       <a href="results.html">Results</a>
       <a href="how-to-use.html">How to use it</a>
+      <a href="for-funders.html">For funders</a>
       <a href="why-it-matters.html">Why it matters</a>
       <a class="btn-sm" href="results.html">Explore results</a>
     </nav>
@@ -45,7 +46,7 @@
     <div class="impact" id="impact">
       <div class="icard" data-reveal>
         <div class="icard__img">
-          <div class="imgslot"><img src="assets/img/panama.jpg" alt="A metro viaduct under construction against the Panama City skyline."></div>
+          <div class="imgslot"><img loading="lazy" decoding="async" src="assets/img/panama.jpg" alt="A metro viaduct under construction against the Panama City skyline."></div>
           <div class="chead">Data publication</div><div class="cflag">Panama</div>
         </div>
         <div class="icard__body"><dl>
@@ -56,7 +57,7 @@
       </div>
       <div class="icard" data-reveal>
         <div class="icard__img">
-          <div class="imgslot"><img src="assets/img/uganda.jpg" alt="A rural road being paved through the Ugandan countryside."></div>
+          <div class="imgslot"><img loading="lazy" decoding="async" src="assets/img/uganda.jpg" alt="A rural road being paved through the Ugandan countryside."></div>
           <div class="chead">Overall ITI score</div><div class="cflag">Uganda</div>
         </div>
         <div class="icard__body"><dl>
@@ -67,7 +68,7 @@
       </div>
       <div class="icard" data-reveal>
         <div class="icard__img">
-          <div class="imgslot"><img src="assets/img/costarica.jpg" alt="A modern bridge crossing green Costa Rican mountains."></div>
+          <div class="imgslot"><img loading="lazy" decoding="async" src="assets/img/costarica.jpg" alt="A modern bridge crossing green Costa Rican mountains."></div>
           <div class="chead">Overall ITI score</div><div class="cflag">Costa Rica</div>
         </div>
         <div class="icard__body"><dl>
@@ -125,6 +126,7 @@
         <a href="what-is-iti.html">What is the ITI?</a>
         <a href="results.html">Results</a>
         <a href="how-to-use.html">How to use it</a>
+      <a href="for-funders.html">For funders</a>
         <a href="why-it-matters.html">Why it matters</a>
       </nav>
     </div>
@@ -151,9 +153,12 @@
     <div class="modal__top"><h3>Use the ITI in your country</h3><button class="modal__x" data-close>&times;</button></div>
     <div class="modal__body">
       <p style="margin-top:0;font-size:14.5px;color:var(--muted);">Tell us who you are and we will route you to the right CoST contact.</p>
-      <input class="field" placeholder="Your name" />
-      <input class="field" placeholder="Organisation" />
-      <input class="field" placeholder="Country" />
+      <label class="sr-only" for="cf-name">Your name</label>
+      <input class="field" id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" />
+      <label class="sr-only" for="cf-org">Organisation</label>
+      <input class="field" id="cf-org" name="organisation" type="text" autocomplete="organization" placeholder="Organisation" />
+      <label class="sr-only" for="cf-country">Country</label>
+      <input class="field" id="cf-country" name="country" type="text" autocomplete="country-name" placeholder="Country" />
       <button class="btn btn-slate" style="width:100%;margin-top:14px;" data-close>Send (prototype)</button>
       <p class="modal__note">Prototype form. No message is sent. The live version routes to the CoST team.</p>
     </div>

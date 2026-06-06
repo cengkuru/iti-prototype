@@ -38,6 +38,8 @@
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+:focus-visible { outline: 3px solid var(--gold-deep); outline-offset: 2px; border-radius: 4px; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: var(--sans); font-size: 17px; line-height: 1.6;
@@ -452,6 +454,57 @@ footer .endorse { font-family: var(--mono); font-size: 10px; letter-spacing: .1e
 .mapboxgl-popup-content { font-family: var(--sans); border-radius: 10px; padding: 14px 16px; }
 .mapboxgl-popup-content h4 { margin: 0 0 4px; font-size: 15px; color: var(--slate); font-weight: 800; }
 .mapboxgl-popup-content .ms { font-family: var(--mono); font-size: 11px; color: var(--gold-deep); }
+
+/* =============================================================
+   FUNDER ASSURANCE PAGE
+   ============================================================= */
+/* proof grid: methodology / data / QA / use / limits / cost */
+.proofgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.proofcard { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px; position: relative; }
+.proofcard .k { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 12px; }
+.proofcard h3 { font-size: 18px; font-weight: 800; color: var(--slate); letter-spacing: -0.02em; margin-bottom: 10px; }
+.proofcard p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); font-family: var(--serif); }
+.proofcard.limit { border-top: 3px solid var(--red); }
+.proofcard.limit .k { color: var(--red); }
+@media (max-width: 820px){ .proofgrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px){ .proofgrid { grid-template-columns: 1fr; } }
+
+/* evidence ledger table */
+.ledger { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--white); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.ledger thead th { background: var(--slate); color: var(--white); font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; text-align: left; padding: 14px 16px; font-weight: 600; }
+.ledger td { padding: 14px 16px; border-top: 1px solid var(--line); vertical-align: top; line-height: 1.45; }
+.ledger td.claim { font-family: var(--sans); font-weight: 700; color: var(--slate); }
+.ledger td.num { font-family: var(--sans); font-weight: 800; color: var(--gold-deep); white-space: nowrap; }
+.ledger .status { font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; border-radius: 100px; padding: 3px 10px; display: inline-block; white-space: nowrap; }
+.ledger .status.pending { color: var(--red); background: rgba(214,0,0,.07); border: 1px solid rgba(214,0,0,.3); }
+.ledger .status.verified { color: var(--slate); background: var(--gold-tint); border: 1px solid var(--gold); }
+.ledger-scroll { overflow-x: auto; border-radius: 14px; }
+@media (max-width: 680px){ .ledger { font-size: 13px; } .ledger td, .ledger thead th { padding: 11px 12px; } }
+
+/* complementarity table */
+.compare { width: 100%; border-collapse: collapse; font-size: 14.5px; background: var(--white); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.compare thead th { background: var(--slate); color: var(--white); font-family: var(--sans); font-weight: 700; text-align: left; padding: 15px 18px; font-size: 14px; }
+.compare thead th:first-child { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--muted-d); }
+.compare td { padding: 14px 18px; border-top: 1px solid var(--line); line-height: 1.5; font-family: var(--serif); }
+.compare tbody th { text-align: left; padding: 14px 18px; border-top: 1px solid var(--line); font-family: var(--sans); font-weight: 700; color: var(--slate); font-size: 14px; background: var(--bg); }
+.compare .iti-col { background: var(--gold-tint); }
+.compare thead .iti-col { background: var(--gold-deep); color: var(--slate); }
+.compare-scroll { overflow-x: auto; border-radius: 14px; }
+
+/* pathway / apply timeline */
+.pathway { display: grid; gap: 0; counter-reset: step; }
+.pstep { display: grid; grid-template-columns: 64px 1fr; gap: 22px; padding: 0 0 32px; position: relative; }
+.pstep:last-child { padding-bottom: 0; }
+.pstep::before { counter-increment: step; content: counter(step); grid-column: 1; width: 52px; height: 52px; border-radius: 50%; background: var(--slate); color: var(--gold); font-family: var(--sans); font-weight: 900; font-size: 22px; display: flex; align-items: center; justify-content: center; z-index: 2; }
+.pstep::after { content: ""; position: absolute; left: 25px; top: 52px; bottom: 0; width: 2px; background: var(--line); }
+.pstep:last-child::after { display: none; }
+.pstep__body { padding-top: 4px; }
+.pstep__body h3 { font-size: 19px; font-weight: 800; color: var(--slate); letter-spacing: -0.02em; margin-bottom: 6px; }
+.pstep__meta { display: flex; gap: 18px; flex-wrap: wrap; margin: 10px 0 8px; }
+.pstep__meta span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; color: var(--muted); }
+.pstep__meta b { color: var(--gold-deep); font-weight: 600; }
+.pstep__body p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); font-family: var(--serif); }
+@media (max-width: 560px){ .pstep { grid-template-columns: 48px 1fr; gap: 16px; } .pstep::before { width: 40px; height: 40px; font-size: 18px; } .pstep::after { left: 19px; top: 40px; } }
 
 /* =============================================================
    MOBILE REFINEMENTS (phone-first polish, ≤620px)

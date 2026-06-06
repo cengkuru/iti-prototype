@@ -149,11 +149,23 @@
       }
     }
 
-    /* ---- dimension cards: click to expand ---- */
+    /* ---- dimension cards: click/keyboard to expand, screen-reader announced ---- */
     document.querySelectorAll('.dim').forEach(function (card) {
       var more = card.querySelector('.more');
       if (more && card.dataset.more) more.textContent = card.dataset.more;
-      card.addEventListener('click', function () { card.classList.toggle('open'); });
+      // make the div behave as an accessible button
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-expanded', 'false');
+      if (more) { more.id = more.id || ('dim-more-' + Math.round(Math.random() * 1e6)); card.setAttribute('aria-controls', more.id); }
+      function toggle() {
+        var open = card.classList.toggle('open');
+        card.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); toggle(); }
+      });
     });
 
     /* ---- mock dashboard: pick a country, toggle the average ---- */
@@ -212,7 +224,7 @@
         don: { who: "Donor or investor", h: "Evidence to inform fiduciary-risk conversations",
           q: "Is our funding going somewhere transparent and accountable?",
           g: "A consistent measure of transparency and reform progress to inform risk conversations and support decisions.",
-          next: "Review country evidence" },
+          next: "See the funder assurance case", nextHref: "for-funders.html" },
         reg: { who: "Regional body", h: "A benchmark across your member states",
           q: "How do our countries compare, and where do we focus regional effort?",
           g: "A common scale that lets you benchmark members and target capacity-building where it counts.",
@@ -228,7 +240,7 @@
           '<div class="who">' + a.who + '</div><h3>' + a.h + '</h3>' +
           '<div class="qa"><div class="k">Your question</div><div class="v">&ldquo;' + a.q + '&rdquo;</div></div>' +
           '<div class="qa"><div class="k">What the ITI gives you</div><div class="v">' + a.g + '</div></div>' +
-          '<a class="next" href="how-to-use.html">' + a.next + ' &rarr;</a>';
+          '<a class="next" href="' + (a.nextHref || 'how-to-use.html') + '">' + a.next + ' &rarr;</a>';
       }
       tiles.querySelectorAll('.tile').forEach(function (t) {
         t.addEventListener('click', function () {
@@ -256,13 +268,17 @@
     /* ---- real map: Mapbox if a public token is present, else SVG fallback ---- */
     var mapHost = document.getElementById('map');
     if (mapHost) {
+      /* Real ITI / CoST member countries only. Scores are illustrative,
+         pending verification. Do not add a country that has not run the ITI. */
       var COUNTRIES = [
-        { name: 'Uganda',     lng: 32.29, lat: 1.37,  score: 71 },
-        { name: 'Malawi',     lng: 34.30, lat: -13.25, score: 52 },
-        { name: 'Costa Rica', lng: -84.09, lat: 9.93,  score: 67 },
-        { name: 'Panama',     lng: -80.78, lat: 8.54,  score: 63 },
-        { name: 'Honduras',   lng: -86.24, lat: 14.65, score: 58 },
-        { name: 'Thailand',   lng: 100.99, lat: 15.87, score: 60 }
+        { name: 'Uganda',     lng: 32.29,  lat: 1.37,   score: 71 },
+        { name: 'Malawi',     lng: 34.30,  lat: -13.25, score: 52 },
+        { name: 'Ghana',      lng: -1.02,  lat: 7.95,   score: 59 },
+        { name: 'Costa Rica', lng: -84.09, lat: 9.93,   score: 67 },
+        { name: 'Panama',     lng: -80.78, lat: 8.54,   score: 63 },
+        { name: 'Honduras',   lng: -86.24, lat: 14.65,  score: 58 },
+        { name: 'Guatemala',  lng: -90.23, lat: 15.78,  score: 55 },
+        { name: 'Ukraine',    lng: 31.17,  lat: 48.38,  score: 61 }
       ];
       var token = (window.ITI_CONFIG && window.ITI_CONFIG.mapboxToken) || '';
       function fallbackMap() {
