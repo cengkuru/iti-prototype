@@ -453,6 +453,47 @@ footer .endorse { font-family: var(--mono); font-size: 10px; letter-spacing: .1e
 .mapboxgl-popup-content h4 { margin: 0 0 4px; font-size: 15px; color: var(--slate); font-weight: 800; }
 .mapboxgl-popup-content .ms { font-family: var(--mono); font-size: 11px; color: var(--gold-deep); }
 
+/* =============================================================
+   MOBILE REFINEMENTS (phone-first polish, ≤620px)
+   ============================================================= */
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  section.block { padding: 56px 0; }
+  section.block.tight { padding: 40px 0; }
+  .sec-head { margin-bottom: 32px; }
+  .sec-head p, .prose, .lead { font-size: 16.5px; }
+  .hero { padding: 84px 0 64px; }
+  .hero p.lede { font-size: 16.5px; margin: 22px 0 28px; }
+  .cta-row { flex-direction: column; align-items: stretch; }
+  .cta-row .btn { text-align: center; }
+  .pagehero { padding: 56px 0 48px; }
+  /* proof strip: tighter and centred on phone */
+  .stat { padding: 26px 18px; text-align: center; }
+  .stat .l { margin-left: auto; margin-right: auto; }
+  .stat .flag { position: static; display: inline-block; margin-bottom: 8px; }
+  /* country profile: stack the score header, give radar room */
+  .scorehead { gap: 18px 28px; }
+  .scorehead .big { font-size: 3.4rem; }
+  .radar-wrap { gap: 22px; }
+  .radar { max-width: 300px; margin: 0 auto; }
+  .dimbar { grid-template-columns: 130px 1fr 34px; gap: 10px; }
+  .dimbar .lab { font-size: 12.5px; }
+  /* dashboard: comfortable stacked layout */
+  .dash__body { padding: 22px 18px; }
+  /* impact image a touch shorter so the card isn't too tall */
+  .icard__img { height: 150px; }
+  /* map: a bit shorter on phone, still usable */
+  #map, .map-canvas, .map-fallback { height: 360px; }
+  /* artefact rows: let long field names wrap rather than crush the value */
+  .artefact__row { grid-template-columns: 110px 1fr auto; gap: 10px; font-size: 12.5px; }
+  .artefact__row .f { font-size: 9.5px; }
+  /* audience full cards already stack via 720px rule; tighten padding */
+  .audrow__id { padding: 22px 22px; }
+  .audrow__body { padding: 22px 22px; }
+  /* timeline: tighter left rail */
+  .stop { padding-left: 44px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; }
   .hero canvas#field { display:none; }
